@@ -1,0 +1,15 @@
+.chrome .login-form {
+    display: grid;
+}
+
+.chrome .logo-hero,
+.chrome .login-button,
+.chrome .login-form,
+.chrome .login-title {
+    margin-bottom: 16px;
+}
+
+.chrome .logo-hero {
+    width: 128px;
+    height: 128px;
+}

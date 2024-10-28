@@ -109,7 +109,7 @@ const storage = (() => {
 
         settings: {
             get(key) {
-                return storagedata.settings?.[key];
+                return storagedata && storagedata.settings && storagedata.settings[key];
             },
 
             set(key, value) {
@@ -151,7 +151,7 @@ const theme = (() => {
     };
 })();
 
-String.prototype.sanitize = function() {
+String.prototype.sanitize = function() { 
     return this.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 };
 
@@ -654,7 +654,7 @@ function settingsPage() {
             <div class="settings-options">
                 <div class="menu-button" onclick="settingsGeneral()"><span>General</span>${icon.arrow}</div>
                 <div class="menu-button" onclick="settingsProfile()"><span>Profile</span>${icon.arrow}</div>
-                <div class="menu-button" onclick="settingsAccount()"><span>Account</span>${icon.arrow}</div>
+                <div class="menu-button" onclick="settingsAccounts()"><span>Accounts</span>${icon.arrow}</div>
                 <div class="menu-button" onclick="settingsAppearance()"><span>Appearance</span>${icon.arrow}</div>
                 <div class="menu-button"><span>Notifications</span>${icon.arrow}</div>
                 <div class="menu-button"><span>Language</span>${icon.arrow}</div>
@@ -664,7 +664,7 @@ function settingsPage() {
                 <div class="menu-button" onclick="logout()"><span>Log Out</span>${icon.arrow}</div>
             </div>
             <div class="settings-about">
-            <img src="assets/images/telemeow-icon.png" width="24px">
+            <img src="assets/images/telemeow-icon.jpg" width="24px">
             <span style="font-weight: 600;">TeleMeow</span>
             <span style="font-size: 0.75em;opacity:0.6;">0.0.0</span>
             </div>
@@ -864,10 +864,10 @@ function settingsAppearance() {
     setTheme();
 }
 
-function settingsAccount() {
-    page = `settings.account`;
+function settingsAccounts() {
+    page = `settings.accounts`;
 
-    titlebar.set(`Account`);
+    titlebar.set(`Accounts`);
     titlebar.clear(false);
     titlebar.back(`settingsPage()`);
 
