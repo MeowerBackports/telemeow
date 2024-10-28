@@ -156,7 +156,9 @@ String.prototype.sanitize = function() {
 };
 
 String.prototype.highlight = function() {
-    return this.replace(/(?:^|(?<=\s|<p>))@([\w-]+)(?![^<]*?<\/code>)/g, '<span id="username" class="highlight" onclick="openProfile(\'$1\')">@$1</span>')
+    return this.replace(/(^|\s|<p>)@([\w-]+)(?![^<]*?<\/code>)/g, (match, prefix, username) => {
+        return `${prefix}<span id="username" class="highlight" onclick="openProfile('${username}')">@${username}</span>`;
+    });
 };
 
 setTheme();
