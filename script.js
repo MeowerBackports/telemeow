@@ -154,7 +154,7 @@ const theme = (() => {
 String.prototype.sanitize = function() { 
     return this.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 };
-
+// why
 String.prototype.highlight = function() {
     return this.replace(/(^|\s|<p>)@([\w-]+)(?![^<]*?<\/code>)/g, (match, prefix, username) => {
         return `${prefix}<span id="username" class="highlight" onclick="openProfile('${username}')">@${username}</span>`;
