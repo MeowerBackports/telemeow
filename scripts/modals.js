@@ -117,7 +117,7 @@ function openProfile(user) {
 
         openModal({ 
             style: `
-                --banner-color: #${data.avatar_color};
+                --banner-color: #${data.avatar_color === '!color' ? '000000' : data.avatar_color};
             `,
             body: `
             <div class="modal-banner"></div>
